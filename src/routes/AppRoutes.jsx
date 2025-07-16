@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login'; // 👈 Import Login page
 import Register from '../pages/Register';
+import Profile from '../pages/Profile';
 
 export default function AppRoutes() {
   return (
@@ -10,6 +11,7 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<Login />} />         {/* Default page → login */}
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/home" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
