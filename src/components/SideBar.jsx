@@ -21,7 +21,7 @@ const Sidebar = () => {
       <h2 className="text-2xl font-semibold mb-6 text-center">Dashboard</h2>
       <ul className="space-y-4">
         <li>
-          <Link to="/dashboard" className="flex items-center gap-3 text-lg hover:bg-gray-700 p-2 rounded">
+          <Link to="/home" className="flex items-center gap-3 text-lg hover:bg-gray-700 p-2 rounded">
             <FaHome size={20} /> Home
           </Link>
         </li>

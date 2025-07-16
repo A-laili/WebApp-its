@@ -9,6 +9,7 @@ const Navbar = () => {
       <div className="text-xl font-semibold">
         <Link to="/dashboard">Dashboard</Link>
       </div>
+     
       <div className="flex items-center gap-4">
         <button className="relative">
           <FaBell size={20} />
