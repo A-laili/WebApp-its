@@ -1,4 +1,3 @@
-// Dashboard.jsx
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/SideBar";
 import Navbar from "../components/NavBar";
@@ -8,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 const Dashboard = () => {
   const [user, setUser] = useState(null);
 
+  // Handle authentication state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -21,7 +21,7 @@ const Dashboard = () => {
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 ml-64 flex flex-col">
         <Navbar />
 
         <main className="flex-1 p-6 overflow-y-auto">

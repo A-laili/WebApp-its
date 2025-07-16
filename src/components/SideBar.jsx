@@ -1,8 +1,5 @@
-// Sidebar.jsx
 import { FaHome, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// Add this function to the Sidebar component
-
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase"; // Adjust based on your firebase.js file
 
@@ -15,9 +12,10 @@ const handleLogout = async () => {
     console.error("Logout error:", error);
   }
 };
+
 const Sidebar = () => {
   return (
-    <div className="w-64 bg-gray-800 text-white h-full p-6">
+    <div className="w-64 bg-gray-800 text-white h-screen fixed top-0 left-0 p-6">
       <h2 className="text-2xl font-semibold mb-6 text-center">Dashboard</h2>
       <ul className="space-y-4">
         <li>
@@ -36,7 +34,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <button className="flex items-center gap-3 text-lg hover:bg-gray-700 p-2 rounded">
+          <button onClick={handleLogout} className="flex items-center gap-3 text-lg hover:bg-gray-700 p-2 rounded">
             <FaSignOutAlt size={20} /> Logout
           </button>
         </li>
@@ -44,7 +42,5 @@ const Sidebar = () => {
     </div>
   );
 };
-
-
 
 export default Sidebar;
