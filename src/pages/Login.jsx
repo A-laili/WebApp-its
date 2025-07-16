@@ -5,8 +5,10 @@ import { FcGoogle } from "react-icons/fc";
 import Lottie from "lottie-react";
 import registerAnimation from "../assets/register.json";
 import { auth, googleProvider, githubProvider, signInWithPopup } from "../firebase";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Login = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordFocused, setPasswordFocused] = useState(false);
@@ -15,6 +17,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login with credentials:", { email, password });
+    navigate("/dashboard"); // Redirect after login
+
     // Replace with email/password auth (if needed)
   };
 
@@ -22,6 +26,7 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log("Google user:", result.user);
+      navigate("/dashboard"); // Redirect after Google login
     } catch (err) {
       console.error("Google login error:", err);
     }
@@ -31,6 +36,7 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, githubProvider);
       console.log("GitHub user:", result.user);
+      navigate("/dashboard"); // Redirect after GitHub login
     } catch (err) {
       console.error("GitHub login error:", err);
     }
@@ -133,7 +139,7 @@ const Login = () => {
         {/* Register */}
         <p className="mt-4 text-center text-sm text-gray-600">
           Don&apos;t have an account?{" "}
-          <a href="#" className="text-red-600 hover:underline">
+          <a href="/register" className="text-red-600 hover:underline">
             Register
           </a>
         </p>

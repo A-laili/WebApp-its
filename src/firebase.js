@@ -1,7 +1,8 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup , sendEmailVerification} from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
 // ✅ Correct Firebase config
 const firebaseConfig = {
@@ -24,6 +25,7 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+const db = getFirestore(app);
 
 // ✅ Export what's needed for login
-export { auth, googleProvider, githubProvider, signInWithPopup };
+export { auth, googleProvider, githubProvider, signInWithPopup, db };
