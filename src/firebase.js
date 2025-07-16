@@ -1,31 +1,29 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  GithubAuthProvider,
-  signInWithPopup
-} from "firebase/auth";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 
-// Your Firebase config object (from Firebase Console → Project Settings)
+// ✅ Correct Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDX-AIzaSyBX_HnhCHMPOJEJYbiP_JFiKCCBni438iU", // Replace with your actual API key
-  authDomain: "its-app-466013.firebaseapp.com",
-  projectId: "its-app-466013",
-  storageBucket: "its-app-466013.appspot.com",
-  messagingSenderId: "247666347106",
-  appId: "1:247666347106:web:exampleappidvalue", // Replace this with your real App ID if needed
+  apiKey: "AIzaSyBX_HnhCHMPOJEJYbiP_JFiKCCBni438iU",
+  authDomain: "its-app-a2d3d.firebaseapp.com",
+  projectId: "its-app-a2d3d",
+  storageBucket: "its-app-a2d3d.appspot.com", // fixed `.app` → `.appspot.com`
+  messagingSenderId: "454185580863",
+  appId: "1:454185580863:web:2b2f392fa3f300c9c4bb8a",
+  measurementId: "G-FYXXEJGV2Q",
 };
 
-// Initialize Firebase App
+// ✅ Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-// Initialize Auth service
-const auth = getAuth(app);
+// ✅ Init Analytics (optional)
+const analytics = getAnalytics(app);
 
-// Setup OAuth providers
+// ✅ Init Auth & Providers
+const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-// Export everything you need
+// ✅ Export what's needed for login
 export { auth, googleProvider, githubProvider, signInWithPopup };
